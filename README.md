@@ -13,7 +13,7 @@ npm run example <<path to example yaml file>>
 ```
 The example
 ```sh
-npm run example ./examples/yaml/pdf/load.yaml
+npm run example ./examples/yaml/pdf/from-url.yaml
 ```
 generates output
 ```sh
