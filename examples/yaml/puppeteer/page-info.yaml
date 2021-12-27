@@ -1,0 +1,48 @@
+- use: puppeteer-plugin
+
+- puppeteer:
+    apply:
+      
+      - launch:
+          as: browser
+      
+      - new-page:
+          $ref: browser
+          as: p1
+      
+      - goto:
+          $ref: p1 
+          url: https://news.ycombinator.com/news
+          options:
+            waitUntil: networkidle2
+      
+      - map:
+        
+        - $ref: p1
+          transform: page.url
+          into: info.url
+        
+        - $ref: p1
+          transform: page.title
+          into: info.title
+
+        - $ref: p1
+          transform: page.metrics
+          into: info.metrics
+        
+        - $ref: p1
+          transform: page.cookies
+          into: info.cookies
+
+        - $ref: p1
+          transform: page.content
+          into: info.content
+
+
+      - close:
+          $ref: p1
+
+      - close:
+          $ref: browser    
+      
+      - return: info          

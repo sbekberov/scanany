@@ -1,0 +1,16 @@
+- use: 
+    - file-plugin
+    - transform-plugin 
+
+- file:
+    path: ./examples/yaml/xlsx/test.xlsx
+    into: data  
+
+
+- map:
+    $ref: data
+    transform: xlsx->js
+    into: result    
+
+- return: result                   
+

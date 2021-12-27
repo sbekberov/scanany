@@ -1,0 +1,28 @@
+- use: transform-plugin 
+
+- map:
+    - $const: >
+        <node name="root">
+          <node name="child">
+            text content
+          </node>
+        </node>
+      into: data  
+
+    - $ref: data
+      transform: 
+        apply:
+          - xml->js
+          - json.stringify
+      into: result.json
+
+    - $ref: data
+      transform: 
+        apply:
+          - xml->js
+          - js->xml
+      into: result.xml
+      
+
+          
+- return: result

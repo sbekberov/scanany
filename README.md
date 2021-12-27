@@ -1,2 +1,2 @@
 # scanany
-Scanany  Plugable Data Scraper  
+scanany Plugable Data Scraper  

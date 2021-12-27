@@ -1,0 +1,40 @@
+- use: transform-plugin 
+
+- map:
+    - $const: >
+        var;value
+
+        a;1
+
+        b;2
+
+      into: data  
+
+    - $ref: data
+      into: result.inputData
+
+    - $ref: data
+      transform: 
+        apply:
+          - csv->js
+      into: result.js
+
+    - $ref: result.js
+      transform: 
+        apply:
+          - js->csv
+      into: result.csv
+    
+    - $ref: result.js
+      transform: 
+        apply:
+          - js->xml
+      into: result.xml
+    
+    - $ref: result.js
+      transform: 
+        apply:
+          - js->yaml
+      into: result.yaml
+    
+- return: result

@@ -1,0 +1,27 @@
+- use: mysql-plugin 
+
+
+- mysql:
+    options:
+      uri: mysql://root:aabold@localhost:3306/x4mspp0ssyvlauv8
+    apply:
+      - execute:
+          sql: >
+            SELECT 
+                product.id,
+                product.name,
+                producer.name,
+                location.name
+            FROM product 
+                left join producer 
+                    on product.producer = producer.id
+                left join location
+                    on producer.location = location.id
+          options:
+            nestTables: "."
+          
+          into: data
+      
+      - return: data
+
+- return: data                    

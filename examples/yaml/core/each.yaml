@@ -1,0 +1,36 @@
+- map:
+    $const: data
+    into: var
+
+- map:
+    $const:
+        - a
+        - b
+        - c
+    into: 
+      $ref: var
+
+- map:
+    $const: toString
+    into: format      
+
+- map:
+    $ref: data
+    into: data1        
+
+- each:
+    in:
+      $ref: data
+    as: $item
+    indexed-by: $index      
+    into: result       
+    apply:
+      - map:
+          - $ref: $item
+            into: res.data
+          - $ref: $index
+            into: res.index
+
+      - return: res
+
+- return: result        

@@ -1,0 +1,16 @@
+- use: 
+    - file-plugin
+    - transform-plugin 
+
+- file:
+    path: ./examples/yaml/docx/test.docx
+    into: data  
+
+
+- map:
+    $ref: data
+    transform: docx->js
+    into: result    
+
+- return: result                   
+

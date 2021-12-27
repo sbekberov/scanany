@@ -1,0 +1,27 @@
+- use: mongodb-plugin 
+
+
+- mongo:
+    
+    options:
+      uri: mongodb+srv://jace:jace@cluster0.53bkx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+    
+    apply:
+      - find:
+          db: covid_nszu
+          collection: covid_owid
+          query:
+            date: "2020-02-24"
+            location:
+              $in:
+                - Afghanistan
+                - Argentina
+          project:
+            _id: 0
+            location: 1
+            new_cases: 1
+
+          
+          into: data
+
+- return: data                   

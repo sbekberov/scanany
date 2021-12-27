@@ -1,0 +1,22 @@
+- use: 
+    - axios-plugin
+    - transform-plugin 
+
+- axios:
+    apply:
+      - fetch:
+          request:
+            method: GET
+            headers: 
+              accept: application/pdf
+            responseType: arraybuffer  
+            url: https://file-examples-com.github.io/uploads/2017/10/file-sample_150kB.pdf
+          into: response
+
+
+- map:
+    $ref: response.data
+    transform: pdf->js
+    into: result    
+
+- return: result                   

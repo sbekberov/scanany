@@ -1,0 +1,34 @@
+- use: mongodb-plugin 
+
+
+- mongo:
+    
+    options:
+      uri: mongodb+srv://jace:jace@cluster0.53bkx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+    
+    apply:
+      - aggregate:
+          db: covid_nszu
+          collection: covid_owid_meta
+          query:
+            - $group:
+                _id: $source
+            - $project:
+                _id: 0
+                name: $_id      
+
+          into: data
+
+- each:
+    in:
+      $ref: data
+    as: item
+    into: response
+    apply:
+      - map: 
+          $ref: item.name
+          transform: lodash.truncate
+          into: res.name
+      - return: res    
+
+- return: response                   

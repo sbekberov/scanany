@@ -1,0 +1,21 @@
+- use: 
+    - axios-plugin
+    - transform-plugin 
+
+- axios:
+    apply:
+      - fetch:
+          request:
+            method: GET
+            headers: 
+              accept: application/vnd.openxmlformats-officedocument.wordprocessingml.document
+            responseType: arraybuffer  
+            url: https://file-examples-com.github.io/uploads/2017/02/file-sample_100kB.docx
+          into: response
+
+- map:
+    $ref: response.data
+    transform: docx->js
+    into: result    
+
+- return: result                   

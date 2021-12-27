@@ -1,0 +1,21 @@
+- use: 
+    - axios-plugin
+    - transform-plugin 
+
+- axios:
+    apply:
+      - fetch:
+          request:
+            method: GET
+            headers: 
+              accept: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+            responseType: arraybuffer  
+            url: https://filesamples.com/samples/document/xlsx/sample3.xlsx
+          into: response
+
+- map:
+    $ref: response.data
+    transform: xlsx->js
+    into: result    
+
+- return: result                   

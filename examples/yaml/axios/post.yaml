@@ -1,0 +1,40 @@
+- use: axios-plugin
+
+- map:
+    $const: https://msapi-registry.herokuapp.com/spec/spidey8.yaml
+    into: params.url
+
+- map:
+    $const:
+      request:
+        method: POST
+        
+        url: 
+          $ref: params.url
+        
+        headers: 
+          Content-type: text/plain
+          accept: application/yaml
+        
+        data: >
+          map:
+            $ref: response.data
+            into: data
+
+    into: request            
+
+- map:
+    $const:
+      apply:
+        - fetch:
+            request:
+              $ref: request
+            into: response
+        - map: 
+            $ref: response.data
+            into: data      
+    into: apply        
+
+- axios:
+    apply:
+      $ref: apply

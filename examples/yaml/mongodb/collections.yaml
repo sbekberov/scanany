@@ -1,0 +1,27 @@
+- use: mongodb-plugin 
+
+
+- mongo:
+    
+    options:
+      uri: mongodb+srv://jace:jace@cluster0.53bkx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+    
+    apply:
+      - collections:
+          db: covid_nszu 
+          into: data
+
+- each:
+    in:
+      $ref: data
+    as: item
+    into: collections
+    apply:
+      - map: 
+          $ref: item.name
+          into: res.name
+      - return: res    
+
+
+
+- return: collections                   

@@ -1,0 +1,15 @@
+- use: 
+    - file-plugin
+    - transform-plugin 
+
+- file:
+    path: ./examples/yaml/pdf/test.pdf
+    into: data  
+
+
+- map:
+    $ref: data
+    transform: pdf->js
+    into: result    
+
+- return: result                   

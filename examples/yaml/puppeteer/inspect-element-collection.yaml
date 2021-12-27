@@ -1,0 +1,63 @@
+- use: puppeteer-plugin
+
+- map:
+    $const: https://news.ycombinator.com/news
+    into: params.url
+
+- puppeteer:
+    apply:
+      
+      - launch:
+          as: browser
+      
+      - new-page:
+          $ref: browser
+          as: p1
+      
+      - goto:
+          $ref: p1 
+          url: 
+            $ref: params.url
+          options:
+            waitUntil: networkidle2
+      
+      - all:
+          $ref: p1
+          select: a.titlelink
+          into: element      
+
+      - each:
+          in:
+            $ref: element
+          as: item
+          into: data
+          apply:
+
+            - map:
+              - $ref: item
+                transform: 
+                  apply:
+                    - text
+                into: res.text
+              
+              - $ref: item
+                transform: html
+                into: res.html
+              
+              - $ref: item
+                transform: attributes
+                into: res.attributes
+              
+              - $ref: item
+                transform: class
+                into: res.class
+
+            - return: res  
+        
+      - close:
+          $ref: p1
+
+      - close:
+          $ref: browser    
+      
+      - return: data          
