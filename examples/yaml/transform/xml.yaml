@@ -1,3 +1,13 @@
+# how to use transform-plugin
+
+# command of data transform can be use in 
+# apply inscturction of transform
+
+# describe xml data as const
+# transforms it to js ans back to xml 
+# also use json.stringify transform of js object to json
+
+
 - use: transform-plugin 
 
 - map:

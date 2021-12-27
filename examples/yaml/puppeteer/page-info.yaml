@@ -4,6 +4,10 @@
     apply:
       
       - launch:
+          options:
+              args:
+                - "--no-sandbox" 
+                - "--disable-setuid-sandbox"
           as: browser
       
       - new-page:

@@ -19,7 +19,9 @@ const puppeteer = async (command, context) => {
 const launch = async (command, context) => {
 	
 	command._as = scraperInstance.resolveValue(command.as, context) || "$browser"
-	let browser = await context.$puppeteer.launch(context.options)
+	let options = scraperInstance.resolveValue(command.options, context) || "$browser"
+	console.log(options)
+	let browser = await context.$puppeteer.launch(options)
 
 	context = await scraperInstance.executeOnce({as:command._as}, context, browser)	
 	return context

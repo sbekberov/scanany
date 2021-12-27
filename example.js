@@ -8,8 +8,8 @@ const test = async () => {
 	let filepath = path.resolve(process.argv[2])
 	
 	let scraper = new Scraper()
-	let source = require("fs").readFileSync(filepath).toString()
-	let script = YAML.load(source.replace(/\t/gm, " "))
+	let source = require("fs").readFileSync(filepath).toString().replace(/\t/gm, " ")
+	let script = YAML.load(source)
 
 	let result = await scraper.execute(script)
 	console.log("---------------------------------------------------------------")
@@ -17,6 +17,9 @@ const test = async () => {
 	console.log()
 	console.log(source)
 	console.log("---------------------------------------------------------------")
+	console.log(JSON.stringify(script))
+	console.log("---------------------------------------------------------------")
+	
 	console.log("Scanany result:")
 	console.log()
 	console.log(result)

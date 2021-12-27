@@ -1,3 +1,7 @@
+# how to use axios-plugin
+
+# HTTP request with axios
+
 - use: axios-plugin 
 
 - axios:
@@ -10,3 +14,4 @@
       - map: 
           $ref: response.data
           into: data      
+- return: data

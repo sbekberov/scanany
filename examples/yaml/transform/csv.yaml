@@ -1,3 +1,13 @@
+
+# how to use transform-plugin
+
+# command of data trancform can be use in 
+# apply inscturction of transform
+
+# describe csv data as const
+# transforms it into js, xml and yaml 
+
+
 - use: transform-plugin 
 
 - map:

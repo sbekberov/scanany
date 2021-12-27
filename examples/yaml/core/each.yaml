@@ -1,3 +1,7 @@
+# core-plugin used as default
+# Commands: map, each, return
+# Features: use context references , use constants 
+
 - map:
     $const: data
     into: var

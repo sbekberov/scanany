@@ -1,3 +1,11 @@
+# command of data transform can be use in 
+# apply inscturction of transform
+
+# describe yaml data as const
+# transforms it to js ans back to yaml 
+# also use json.stringify transform of js object to json
+
+
 - use: transform-plugin 
 
 - map:
