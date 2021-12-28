@@ -17,8 +17,8 @@ const test = async () => {
 	console.log()
 	console.log(source)
 	console.log("---------------------------------------------------------------")
-	console.log(JSON.stringify(script))
-	console.log("---------------------------------------------------------------")
+	// console.log(JSON.stringify(script))
+	// console.log("---------------------------------------------------------------")
 	
 	console.log("Scanany result:")
 	console.log()

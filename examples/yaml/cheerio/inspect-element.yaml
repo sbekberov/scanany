@@ -1,0 +1,50 @@
+- use: 
+    - axios-plugin
+    - cheerio-plugin
+
+
+- axios:
+    apply:
+      - fetch:
+          request:
+            method: GET
+            url: https://news.ycombinator.com/news
+          into: response
+      - map: 
+          $ref: response.data
+          into: data
+
+- cheerio:
+    apply:
+
+      - load:
+          $ref: data
+          into: page
+
+      - once:
+          $ref: page
+          select: a.titlelink
+          into: element
+
+      - map:
+          - $ref: element
+            transform: html
+            into: info.html    
+          
+          - $ref: element
+            transform: text
+            into: info.text    
+          
+          - $ref: element
+            transform: class
+            into: info.class    
+          
+          - $ref: element
+            transform: attributes
+            into: info.attributes    
+
+
+      - return: info        
+
+
+- return: info          

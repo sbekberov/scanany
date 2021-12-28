@@ -1,17 +1,8 @@
 - use: rss-plugin 
 
-
 - rss:
-    apply:
-      
-      - init:
-          as: parser
+    url: https://rss.unian.net/site/news_rus.rss
+    into: feed     
 
-      - load:
-          $ref: parser
-          url: https://rss.unian.net/site/news_rus.rss
-          
-          into: feed     
-
-      - return: feed    
+- return: feed    
       

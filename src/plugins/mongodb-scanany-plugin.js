@@ -25,7 +25,7 @@ const engineMongo = async (command, context) => {
 		context = await scraperInstance.executeOnce({apply}, context)
 	}
 
-	client.close()
+	await client.close()
 
 	delete context.$client
 

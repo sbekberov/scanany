@@ -5,6 +5,8 @@ const corePlugin = require("./plugins/core-scanany-plugin")
 const castPlugin = require("./plugins/cast-scanany-plugin")
 
 const pluginsNames = {
+	"cheerio-plugin"		: "./plugins/cheerio-scanany-plugin",
+	"js-plugin"				: "./plugins/js-scanany-plugin",
 	"pdf-plugin"			: "./plugins/pdf-scanany-plugin",
 	"docx-plugin"			: "./plugins/docx-scanany-plugin",
 	"xlsx-plugin"			: "./plugins/xlsx-scanany-plugin",
