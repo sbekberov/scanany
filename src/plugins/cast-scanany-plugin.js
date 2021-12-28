@@ -1,16 +1,16 @@
 const _ = require("lodash")
 const moment = require("moment")
 // const md5 = require("md5")
-const uuid = require("uuid").v4
+// const uuid = require("uuid").v4
 
 module.exports = {
 	
 	rules: [
 
-		{
-			name:["uuid"],
-			_execute: async (command, context, value) => uuid()
-		},
+// 		{
+// 			name:["uuid"],
+// 			_execute: async (command, context, value) => uuid()
+// 		},
 		
 		// {
 		// 	name:["md5"],
