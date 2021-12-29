@@ -1,5 +1,7 @@
 package-lock.json
 
+examples/yaml/MISC/
+
 # Logs
 logs
 *.log

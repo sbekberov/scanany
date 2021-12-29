@@ -25,7 +25,7 @@ const test = async () => {
 	console.log(result)
 	console.log("---------------------------------------------------------------")
 	
-	process.exit(0)
+	// process.exit(0)
 }
 
 test()

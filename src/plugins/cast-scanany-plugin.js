@@ -45,6 +45,7 @@ module.exports = {
 		{
 			name:["date"],
 			_execute: async (command, context, value) => {
+				// console.log(command, `"${value}"`)
 				if(_.isString(command)) return new Date(value)
 				if( command.now ) return new Date() 
 			}

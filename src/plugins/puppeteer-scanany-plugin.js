@@ -20,7 +20,7 @@ const launch = async (command, context) => {
 	
 	command._as = scraperInstance.resolveValue(command.as, context) || "$browser"
 	let options = scraperInstance.resolveValue(command.options, context) || "$browser"
-	console.log(options)
+	
 	let browser = await context.$puppeteer.launch(options)
 
 	context = await scraperInstance.executeOnce({as:command._as}, context, browser)	
@@ -64,7 +64,7 @@ const once = async (command, context) => {
 				scraperInstance.resolveValue({$ref:"$page"}, context)
 	
 	let selector = scraperInstance.resolveValue(command.select, context)
-
+	await page.waitForSelector(selector)
 	let selection = await page.$(selector)	
 	
 	let into = scraperInstance.resolveValue(command.into || command.as, context) || "$selection"
@@ -78,9 +78,9 @@ const all = async (command, context) => {
 	let page = 	scraperInstance.resolveValue(command, context) 
 				|| 
 				scraperInstance.resolveValue({$ref:"$page"}, context)
-	
-	let selector = scraperInstance.resolveValue(command.select, context)
 
+	let selector = scraperInstance.resolveValue(command.select, context)
+	await page.waitForSelector(selector)
 	let selection = await page.$$(selector)	
 	
 	let into = scraperInstance.resolveValue(command.into || command.as, context) || "$selection"
@@ -94,15 +94,16 @@ const all = async (command, context) => {
 const close = async (command, context) => {
 	
 	let instance = 	scraperInstance.resolveValue(command, context)
-
-	if(instance) {
-		await instance.close()
-	} else {
-		if(context.$page && !context.$page.isClosed()){
-			await context.$page.close()
-		}
-		await context.$browser.close()
-	}
+	// console.log(instance)
+	await instance.close()
+	// if(instance) {
+	// 	await instance.close()
+	// } else {
+	// 	if(context.$page && !context.$page.isClosed()){
+	// 		await context.$page.close()
+	// 	}
+	// 	await context.$browser.close()
+	// }
 
 	return context
 }
