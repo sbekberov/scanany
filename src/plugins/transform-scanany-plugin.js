@@ -7,13 +7,22 @@ const { toPairs, extend } = require("lodash")
 const pdf = require('pdf-parse')
 const xlsx = require('node-xlsx').default
 const mammoth = require('mammoth')
-
+const RssParser = require('rss-parser')
 
 
 module.exports = {
 	
 	rules: [
 
+		{
+			name:["rss->js","transform.rss->js"],
+			_execute: async (command, context, value) => {
+				let parser = new RssParser()
+				let result = await parser.parseString(value)				
+				return result
+			}	
+		},
+		
 		{
 			name:["docx->js","transform.docx->js"],
 			_execute: async (command, context, value) => {
