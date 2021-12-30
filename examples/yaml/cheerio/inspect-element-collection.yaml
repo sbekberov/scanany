@@ -2,55 +2,44 @@
     - axios-plugin
     - cheerio-plugin
 
-
-- axios:
-    apply:
-      - fetch:
+- fetch:
           request:
             method: GET
             url: https://news.ycombinator.com/news
-          into: response
-      - map: 
-          $ref: response.data
-          into: data
-
-- cheerio:
-    apply:
-
-      - load:
-          $ref: data
+          transform:
+            apply:
+              - project: data
+              - html->page    
           into: page
+     
+- all:
+    $ref: page
+    select: a.titlelink
+    into: collection
 
-      - all:
-          $ref: page
-          select: a.titlelink
-          into: collection
+- each:
+    in:
+      $ref: collection
+    as: element
+    into: info
+    apply:  
+      - map:
+          - $ref: element
+            transform: html
+            into: res.html    
+          
+          - $ref: element
+            transform: text
+            into: res.text    
+          
+          - $ref: element
+            transform: class
+            into: res.class    
+          
+          - $ref: element
+            transform: attributes
+            into: res.attributes
 
-      - each:
-          in:
-            $ref: collection
-          as: element
-          into: info
-          apply:  
-            - map:
-                - $ref: element
-                  transform: html
-                  into: res.html    
-                
-                - $ref: element
-                  transform: text
-                  into: res.text    
-                
-                - $ref: element
-                  transform: class
-                  into: res.class    
-                
-                - $ref: element
-                  transform: attributes
-                  into: res.attributes
+      - return: res          
 
-            - return: res          
-
-      - return: info        
-
-- return: info          
+- return: info        

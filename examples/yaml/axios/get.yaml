@@ -10,8 +10,7 @@
           request:
             method: GET
             url: https://news.ycombinator.com/news
-          into: response
-      - map: 
-          $ref: response.data
-          into: data      
+          transform:
+            project: data  
+          into: data  
 - return: data

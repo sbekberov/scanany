@@ -1,7 +1,7 @@
 
 - use: 
     - file-plugin
-    - transform-plugin
+    - xlsx-plugin
 
 - file:
     path: ./examples/yaml/transform/test.xlsx

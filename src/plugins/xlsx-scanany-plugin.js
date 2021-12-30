@@ -24,6 +24,21 @@ const _xlsx = async (command, context) => {
 
 }
 
+const xlsx2js = async (command, context, value) => {
+	const jsonOpts = {
+	  header: 1,
+	  defval: '',
+	  blankrows: true,
+	  raw: false,
+	  dateNF: 'd"/"m"/"yyyy' // <--- need dateNF in sheet_to_json options (note the escape chars)
+	}
+	
+	let result = xlsx.parse(value, jsonOpts) 
+	return result
+}	
+
+		
+
 
 module.exports = {
 	
@@ -35,6 +50,10 @@ module.exports = {
 		{
 			name: ["xlsx"],
 			_execute: _xlsx
+		},
+		{
+			name:["xlsx->js","transform.xlsx->js"],
+			_execute: xlsx2js 
 		}
 	]
 

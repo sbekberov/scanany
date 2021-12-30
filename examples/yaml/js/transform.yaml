@@ -1,5 +1,4 @@
-- use: 
-    - js-plugin
+- use: js-plugin
 
 
 - map:
@@ -44,8 +43,7 @@
       - map:
           $ref: item
           transform:
-            apply:
-              - js: >
+            js: >
                           (command, context, value) => {
                             value.percents = Math.round(100*value.count/context.data.length)+"%"
                             return value

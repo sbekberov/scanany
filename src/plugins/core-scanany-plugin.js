@@ -43,13 +43,16 @@ module.exports = {
 				"core.map"
 			],
 
-			_execute: async (command, context) => {
+			_execute: async (command, context, _value) => {
 				
 				command = (isArray(command)) ? command : [command] 
 				
 				for( let i=0; i<command.length; i++){
-
-					let value = scraperInstance.resolveValue(command[i], context)
+					
+					let value = (command[i].$ref || command[i].$const) 
+									? scraperInstance.resolveValue(command[i], context) 
+									: _value
+					
 					if( command[i].transform){
 						let transform = scraperInstance.resolveValue(command[i].transform)
 						value = await scraperInstance.executeOnce({transform}, context, value)
@@ -74,7 +77,11 @@ module.exports = {
 
 					if(isString(command)){
 						value = await scraperInstance.executeOnce(command, context, value)
-					} else if(command.apply){
+					} else if (!command.apply){
+						command.apply = command
+					} 
+
+					if(command.apply){
 						let apply = scraperInstance.resolveValue(command.apply, value)
 						apply = (isArray(apply)) ? apply : [apply]
 					

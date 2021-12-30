@@ -18,6 +18,12 @@ const _pdf = async (command, context) => {
 
 }
 
+const pdf2js = async (command, context, value) => {
+	let result = await pdf(value) 
+	return result
+}	
+
+
 
 module.exports = {
 	
@@ -29,7 +35,12 @@ module.exports = {
 		{
 			name: ["pdf"],
 			_execute: _pdf
+		},
+				{
+			name:["pdf->js","transform.pdf->js"],
+			_execute: pdf2js 
 		}
+
 	]
 
 }

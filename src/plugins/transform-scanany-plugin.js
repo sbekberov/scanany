@@ -4,56 +4,10 @@ const YAML = require("js-yaml")
 const csvjson = require("csvjson")
 const json2csv = require("json2csv")
 const { toPairs, extend } = require("lodash")
-const pdf = require('pdf-parse')
-const xlsx = require('node-xlsx').default
-const mammoth = require('mammoth')
-const RssParser = require('rss-parser')
-
 
 module.exports = {
 	
 	rules: [
-
-		{
-			name:["rss->js","transform.rss->js"],
-			_execute: async (command, context, value) => {
-				let parser = new RssParser()
-				let result = await parser.parseString(value)				
-				return result
-			}	
-		},
-		
-		{
-			name:["docx->js","transform.docx->js"],
-			_execute: async (command, context, value) => {
-				let result = await mammoth.extractRawText({ buffer: value }) 
-				return result
-			}	
-		},
-
-		{
-			name:["xlsx->js","transform.xlsx->js"],
-			_execute: async (command, context, value) => {
-				const jsonOpts = {
-				  header: 1,
-				  defval: '',
-				  blankrows: true,
-				  raw: false,
-				  dateNF: 'd"/"m"/"yyyy' // <--- need dateNF in sheet_to_json options (note the escape chars)
-				}
-				
-				let result = xlsx.parse(value, jsonOpts) 
-				return result
-			}	
-		},
-
-		{
-			name:["pdf->js","transform.pdf->js"],
-			_execute: async (command, context, value) => {
-				let result = await pdf(value) 
-				return result
-			}	
-		},
 
 		{
 			name:["xml->js","transform.xml->js"],

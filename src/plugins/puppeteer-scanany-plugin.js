@@ -65,7 +65,14 @@ const once = async (command, context) => {
 	
 	let selector = scraperInstance.resolveValue(command.select, context)
 	await page.waitForSelector(selector)
-	let selection = await page.$(selector)	
+	let selection = await page.$(selector)
+
+	let apply = scraperInstance.resolveValue(command.apply)
+	
+	if(apply){
+		await scraperInstance.executeOnce({map: apply}, context, selection)
+	}
+		
 	
 	let into = scraperInstance.resolveValue(command.into || command.as, context) || "$selection"
 	context = await scraperInstance.executeOnce({into}, context, selection)	

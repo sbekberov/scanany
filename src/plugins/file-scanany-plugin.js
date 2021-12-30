@@ -10,8 +10,16 @@ const file = async (command, context) => {
 
 	let content =  fs.readFileSync(_path)
 
+	let transform = scraperInstance.resolveValue(command.transform, context)
+	let result = content
+	
+	if(transform) {
+		result = await scraperInstance.executeOnce({transform}, context, result)
+	}
+	
+
 	let into = scraperInstance.resolveValue(command.into || command.as, context) || "$content"
-	context = await scraperInstance.executeOnce({into}, context, content)	
+	context = await scraperInstance.executeOnce({into}, context, result)	
 	return context
 
 }

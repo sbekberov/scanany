@@ -45,9 +45,9 @@ module.exports = {
 		{
 			name:["date"],
 			_execute: async (command, context, value) => {
-				// console.log(command, `"${value}"`)
-				if(_.isString(command)) return new Date(value)
-				if( command.now ) return new Date() 
+				if(command == "date" && !value) return new Date()
+				if (value) return new Date(value)	
+				return new Date(command)	
 			}
 		},
 
@@ -66,6 +66,19 @@ module.exports = {
 			_execute: async (command, context, value) => moment(value, command.format).toDate()
 		},
 
+		{
+			name:["get","project"],
+			_execute: async (command, context, value) => {
+				if (_.isString(command)) return _.get(value, command)
+				if (_.isArray(command)){
+					let res = {}
+					command.forEach( c => {
+						_.set(res, c, _.get(value,c))
+					})
+					return res
+				}	
+			}	
+		},
 
 		{
 			name:[

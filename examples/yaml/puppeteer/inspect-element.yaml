@@ -13,56 +13,43 @@
               - "--no-sandbox" 
               - "--disable-setuid-sandbox"
           as: browser
-      
+
       - new-page:
           $ref: browser
           as: p1
-      
+
       - goto:
           $ref: p1 
           url: 
             $ref: params.url
           options:
             waitUntil: networkidle2
-      
+
       - once:
           $ref: p1
           select: td.title span
-          into: element      
-
-      - map:
-        - $ref: element
-          transform: 
-            apply:
-              - text
-          into: info.text
+          apply:
+            - transform: text
+              into: info.text
         
-        - $ref: element
-          transform: html
-          into: info.html
+            - transform: html
+              into: info.html
+            
+            - transform: attributes
+              into: info.attributes
+            
+            - transform: 
+                apply:
+                  attributes:
+                    - class
+                    - id
+                    - style
+              into: info.aaa
         
-        - $ref: element
-          transform: attributes
-          into: info.attributes
-        
-        - $ref: element
-          transform: 
-            apply:
-              attributes:
-                - class
-                - id
-                - style
-
-          into: info.aaa
-        
-        - $ref: element
-          transform: class
-          into: info.class
-        
-      - close:
-          $ref: p1
+            - transform: class
+              into: info.class
 
       - close:
           $ref: browser    
-      
+
       - return: info          

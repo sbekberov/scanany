@@ -2,9 +2,6 @@
 
 - file:
     path: ./examples/yaml/file/load.yaml
-    into: data
-- map:
-    $ref: data
     transform: toString
     into: data
 

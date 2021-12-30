@@ -24,27 +24,19 @@
       into: result.inputData
 
     - $ref: data
-      transform: 
-        apply:
-          - csv->js
+      transform: csv->js
       into: result.js
 
     - $ref: result.js
-      transform: 
-        apply:
-          - js->csv
+      transform: js->csv
       into: result.csv
     
     - $ref: result.js
-      transform: 
-        apply:
-          - js->xml
+      transform: js->xml
       into: result.xml
     
     - $ref: result.js
-      transform: 
-        apply:
-          - js->yaml
+      transform: js->yaml
       into: result.yaml
     
 - return: result

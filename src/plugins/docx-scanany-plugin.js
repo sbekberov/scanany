@@ -17,6 +17,12 @@ const docx = async (command, context) => {
 
 }
 
+const docx2js = async (command, context, value) => {
+	let result = await mammoth.extractRawText({ buffer: value }) 
+	return result
+}	
+		
+
 
 module.exports = {
 	
@@ -28,6 +34,10 @@ module.exports = {
 		{
 			name: ["docx"],
 			_execute: docx
+		},
+		{
+			name:["docx->js","transform.docx->js"],
+			_execute: docx2js
 		}
 	]
 

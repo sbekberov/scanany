@@ -2,45 +2,6 @@ const { keys, isString, isArray, set, get, extend } = require("lodash")
 const cheerio = require("cheerio")
 
 
-// (data, scraper)=> {
-//     $ = cheerio.load(data.html)
-    
-//     let title = $('div.tgme_channel_info_header_title > span').text()
-//     let description = $('div.tgme_channel_info_description').html()
-//     let image = $('div.tgme_channel_info > div.tgme_channel_info_header > i > img').attr("src") 
-    
-//     let lastMessages = []
-//     $('div.tgme_widget_message_bubble').each( (index, element) => {
-//         $(element).find("br").before("\n").remove()
-//         let text = $(element).find("div.tgme_widget_message_text").text().replace(/[\u2000-\uffff]+/g, " ")
-//         let html = $(element).find("div.tgme_widget_message_text").html()
-//         let publishedAt =  moment($(element).find("time").attr("datetime")).format("YYYY-MM-DD hh:mm:ss") 
-        
-//         lastMessages.push({
-//             type:"telegram",
-//             url:data.url,
-//             metadata:{
-//                 scraper,
-//                 channel:{
-//                     name: `@${last(data.url.split("/"))}`,
-//                     title,
-//                     description,
-//                     image
-//                 },
-//                 html,
-//                 text,
-//                 publishedAt
-//             },
-//             md5: md5(text),
-//             createdAt: moment(new Date()).format("YYYY-MM-DD hh:mm:ss") 
-//         })
-//     })
-
-//     return lastMessages
-// }
-
-
-
 let scraperInstance
 
 
@@ -56,12 +17,15 @@ const engineCheerio = async (command, context) => {
 	return context
 }
 
-const load = async (command, context) => {
-	let content = scraperInstance.resolveValue(command, context) || ""
+const load = async (command, context, value) => {
 
+	let content = (value) ? value: scraperInstance.resolveValue(command, context) || ""
+	
 	let result = {
 		$: cheerio.load(content)
 	}
+	
+	if (value) return result
 
 	let into = scraperInstance.resolveValue(command.into || command.as, context) || "$dom"
 	context = await scraperInstance.executeOnce({into}, context, result)	
@@ -79,9 +43,18 @@ const once = async (command, context) => {
 	
 	let element = await dom.$(selector).get(0)
 	element = extend({}, dom, dom.$(element))
+
+	let apply = scraperInstance.resolveValue(command.apply)
+	
+	if(apply){
+		await scraperInstance.executeOnce({map: apply}, context, element)
+	}
+	
+
 	let into = scraperInstance.resolveValue(command.into || command.as, context) || "$selection"
 	context = await scraperInstance.executeOnce({into}, context, element)	
 	return context
+
 }
 
 const all = async (command, context) => {
@@ -124,11 +97,14 @@ const nodeClasses = async (command, context, value) => {
 
 const nodeAttributes = async (command, context, value) => {
 	
-	if(isString(command)){
+	if(isString(command) && command == "attributes"){
 		command = keys(value['0'].attribs)
 	} 
 
 	command = (isArray(command)) ? command : [command]
+	
+	// console.log(command)
+	
 	let result = {}
 	for( let i=0; i < command.length; i++){
 		result[command[i]] = value.attr(command[i]) 
@@ -151,21 +127,23 @@ module.exports = {
 			_execute: engineCheerio
 		},
 		{
-			name: ["load"],
+			name: ["load","html->page","html->$","transform.html->page","transform.html->$",
+					"cheerio.load","cheerio.html->page","cheerio.html->$",
+					"cheerio.transform.html->page","cheerio.transform.html->$"],
 			_execute: load
 		},
 		{
-			name: ["once"],
+			name: ["once", "cheerio.once", "$.once"],
 			_execute: once
 		},
 		{
-			name: ["all"],
+			name: ["all", "cheerio.all", "$.all"],
 			_execute: all
 		},
 		{
 			name:[
 				"text",
-				"node.text"
+				"$.text"
 			],
 			_execute: nodeText
 		},
@@ -173,7 +151,7 @@ module.exports = {
 		{
 			name:[
 				"html",
-				"node.html"
+				"$.html"
 			],
 			_execute: nodeHtml
 		},
@@ -181,7 +159,7 @@ module.exports = {
 		{
 			name:[
 				"class","classes",
-				"node.class", "node.classes"
+				"$.class", "$.classes"
 			],
 			_execute: nodeClasses
 		},
@@ -189,7 +167,7 @@ module.exports = {
 		{
 			name:[
 				"attributes",
-				"node.attributes"
+				"$.attributes"
 			],
 			_execute: nodeAttributes
 		}

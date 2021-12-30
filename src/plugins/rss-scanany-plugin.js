@@ -12,6 +12,14 @@ const rss = async (command, context) => {
 	return context
 }
 
+const transform = async (command, context, value) => {
+	let parser = new Parser()
+	let result = await parser.parseString(value)				
+	return result
+}	
+
+
+
 module.exports = {
 	
 	register: scraper => {
@@ -22,6 +30,10 @@ module.exports = {
 		{
 			name: ["rss"],
 			_execute: rss
+		},
+		{
+			name:["rss->js","transform.rss->js"],
+			_execute: transform
 		}
 	]
 
