@@ -6,7 +6,7 @@
   "scripts": {
     "server": "node ./jest/server/server.js",
     "server-stop": "node ./jest/server/server.stop.js",
-    "test": "jest ./jest/tests --coverage",
+    "test": "jest ./jest/tests --coverage && npm run server-stop",
     "example": "node example"
   },
   "author": "Andrey Boldak",
