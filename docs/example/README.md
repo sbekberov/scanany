@@ -60,6 +60,9 @@ test()
 
 ***Результат***
 
+В yaml файлі в нас використовуються два плагіна ``axios-plugin`` та `cherrio-plugin`.
+Викликаємо функцію `fetch`, яка належить плагіну `axios-plugin` для отримання html-сторінки, та застосовуємо
+функцію `once`, яка належить плагіну `cherrio-plugin`, для отримання таких значень як, `html`, `text`, `class` ,`attributes`
 ```sh
 ---------------------------------------------------------------
 Scanany example: /scanany/examples/yaml/cheerio/inspect-element.yaml
