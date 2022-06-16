@@ -16,6 +16,6 @@ git commit -m 'deploy'
 
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
-git push -f https://github.com/sbekberov/scanary master:gh-pages
+git push -f https://github.com/sbekberov/scanany master:gh-pages
 
 cd -
