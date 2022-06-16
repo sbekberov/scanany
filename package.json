@@ -7,7 +7,10 @@
     "server": "node ./jest/server/server.js",
     "server-stop": "node ./jest/server/server.stop.js",
     "test": "jest ./jest/tests --coverage && npm run server-stop",
-    "example": "node example"
+    "example": "node example",
+    "docs:api": "jsdoc2md  --template docs/.config/README.hbs --files ./lib/**/*.js  > ./docs/api/README.md",
+    "docs:build": "npm run test && npm run docs:api",
+    "docs:dev": " npm run docs:build && npm run remove-prism && npx vuepress dev docs"
   },
   "author": "Andrey Boldak",
   "license": "MIT",
@@ -38,6 +41,8 @@
     "socket.io": "^4.5.1",
     "socket.io-client": "^4.5.1",
     "uuid": "^8.3.2",
+    "vuepress": "^1.9.7",
+    "vuepress-theme-cool": "^1.3.1",
     "xml2js": "^0.4.23"
   }
 }
