@@ -1,120 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a2e0ae04-eb19-4831-9d8a-a21fe7a7ef28" name="Changes" comment="[docs] added test docs">
-      <change afterPath="$PROJECT_DIR$/docs/.config/README.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/asyncapi1/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/asyncapi1/authentication.def" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/asyncapi1/authentication_none.def" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/asyncapi1/code_go.dot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/asyncapi1/code_java.dot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/asyncapi1/code_javascript.dot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/asyncapi1/code_nodejs.dot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/asyncapi1/code_python.dot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/asyncapi1/code_ruby.dot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/asyncapi1/discovery.dot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/asyncapi1/footer.def" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/asyncapi1/main.dot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/asyncapi1/message.def" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/asyncapi1/security.def" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/asyncapi1/translations.dot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/openapi3/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/openapi3/authentication.def" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/openapi3/authentication_none.def" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/openapi3/callbacks.def" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/openapi3/code_csharp.dot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/openapi3/code_go.dot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/openapi3/code_http.dot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/openapi3/code_java.dot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/openapi3/code_javascript.dot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/openapi3/code_jquery.dot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/openapi3/code_nodejs.dot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/openapi3/code_php.dot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/openapi3/code_python.dot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/openapi3/code_ruby.dot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/openapi3/code_shell.dot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/openapi3/debug.def" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/openapi3/discovery.def" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/openapi3/footer.def" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/openapi3/links.def" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/openapi3/main.dot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/openapi3/operation.dot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/openapi3/parameters.def" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/openapi3/responses.def" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/openapi3/security.def" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/openapi3/translations.dot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/semoasa/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/semoasa/ext.def" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/semoasa/main.dot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/semoasa/translations.dot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.config/oas-templates/semoasa/usage.def" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/components/Details.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/components/Quiz.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/components/Styles.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/components/my-component.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/components/sample-timeline.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/config-other.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/enhanceApp.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/faviconCustom.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/license.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/myAvatar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/json/connection.schema.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/json/consumer.schema.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/json/publisher.schema.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/connection-errormessage-properties.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/connection-errormessage.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/connection-properties-url.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/connection.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/consumer-properties-message-properties-options-properties-exclusive.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/consumer-properties-message-properties-options-properties-noack.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/consumer-properties-message-properties-options.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/consumer-properties-message.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/consumer-properties-queue-properties-exchange-errormessage-properties.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/consumer-properties-queue-properties-exchange-errormessage.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/consumer-properties-queue-properties-exchange-properties-mode.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/consumer-properties-queue-properties-exchange-properties-name.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/consumer-properties-queue-properties-exchange-properties-options-properties-autodelete.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/consumer-properties-queue-properties-exchange-properties-options-properties-durable.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/consumer-properties-queue-properties-exchange-properties-options.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/consumer-properties-queue-properties-exchange.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/consumer-properties-queue-properties-name-anyof-0.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/consumer-properties-queue-properties-name-anyof-1.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/consumer-properties-queue-properties-name.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/consumer-properties-queue-properties-options-properties-autodelete.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/consumer-properties-queue-properties-options-properties-durable.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/consumer-properties-queue-properties-options-properties-exclusive.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/consumer-properties-queue-properties-options-properties-noack.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/consumer-properties-queue-properties-options-properties-prefetch.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/consumer-properties-queue-properties-options.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/consumer-properties-queue.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/consumer.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/publisher-errormessage-properties.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/publisher-errormessage.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/publisher-properties-exchange-errormessage-properties.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/publisher-properties-exchange-errormessage.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/publisher-properties-exchange-properties-mode.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/publisher-properties-exchange-properties-name.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/publisher-properties-exchange-properties-options-properties-autodelete.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/publisher-properties-exchange-properties-options-properties-durable.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/publisher-properties-exchange-properties-options.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/publisher-properties-exchange.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/publisher-properties-message-properties-options-properties-persistent.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/publisher-properties-message-properties-options.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/publisher-properties-message.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/schemas/md/publisher.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/public/testReport/test-report.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/quizzes/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/quizzes/quiz1.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/quizzes/quiz2.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/styles/index.styl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/.vuepress/styles/palette.styl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gh-pages.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-    </list>
+    <list default="true" id="a2e0ae04-eb19-4831-9d8a-a21fe7a7ef28" name="Changes" comment="[pages] added github pages" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -166,7 +53,7 @@
       <workItem from="1655108842039" duration="9834000" />
       <workItem from="1655151875819" duration="10480000" />
       <workItem from="1655222575391" duration="27000" />
-      <workItem from="1655222612990" duration="21133000" />
+      <workItem from="1655222612990" duration="21345000" />
     </task>
     <task id="LOCAL-00001" summary="[test] fixed transforming to csv jest test">
       <created>1655146554656</created>
@@ -340,6 +227,7 @@
     <MESSAGE value="[docs] added explanation to example docs" />
     <MESSAGE value="[docs] added plugin docs" />
     <MESSAGE value="[docs] added test docs" />
-    <option name="LAST_COMMIT_MESSAGE" value="[docs] added test docs" />
+    <MESSAGE value="[pages] added github pages" />
+    <option name="LAST_COMMIT_MESSAGE" value="[pages] added github pages" />
   </component>
 </project>
